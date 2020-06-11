@@ -1,0 +1,76 @@
+$ cd Document/Kintone_Dojo
+
+$ git init
+Initialized empty Git repository in /Users/g001494/Documents/Kintone_Dojo/.git/
+
+$ touch README.md
+
+$ vi README.md
+
+$ git status
+On branch master
+No commits yet
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+nothing added to commit but untracked files present (use "git add" to track)
+$ git add README.md
+$ git status
+On branch master
+No commits yet
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   README.md
+
+$ git commit -m "README file created"
+[master (root-commit) 03098e7] README file created
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+$ git remote add origin https://github.com/ahandsel/kintone_dojo.git
+
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 298 bytes | 298.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/ahandsel/Kintone_Dojo.git
+To https://github.com/ahandsel/kintone_Dojo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+$ pwd
+/Users/g001494/Documents/Kintone_Dojo
+
+$ ls -la
+total 8
+drwxr-xr-x   4 g001494  staff  128 Jun  9 14:54 .
+drwx------@ 20 g001494  staff  640 Jun  8 16:22 ..
+drwxr-xr-x  12 g001494  staff  384 Jun  9 14:56 .git
+-rw-r--r--   1 g001494  staff   85 Jun  9 14:54 README.md
+$ cd .git
+
+$ ls -la
+total 40
+drwxr-xr-x  12 g001494  staff  384 Jun  9 14:56 .
+drwxr-xr-x   4 g001494  staff  128 Jun  9 14:54 ..
+-rw-r--r--   1 g001494  staff   20 Jun  9 14:54 COMMIT_EDITMSG
+-rw-r--r--   1 g001494  staff   23 Jun  9 14:54 HEAD
+-rw-r--r--   1 g001494  staff  316 Jun  9 14:56 config
+-rw-r--r--   1 g001494  staff   73 Jun  9 14:54 description
+drwxr-xr-x  14 g001494  staff  448 Jun  9 14:54 hooks
+-rw-r--r--   1 g001494  staff  137 Jun  9 14:54 index
+drwxr-xr-x   3 g001494  staff   96 Jun  9 14:54 info
+drwxr-xr-x   4 g001494  staff  128 Jun  9 14:54 logs
+drwxr-xr-x   7 g001494  staff  224 Jun  9 14:54 objects
+drwxr-xr-x   5 g001494  staff  160 Jun  9 14:56 refs
+
+$ git remote --verbose
+origin	https://github.com/ahandsel/kintone_dojo.git (fetch)
+origin	https://github.com/ahandsel/kintone_dojo.git (push)
