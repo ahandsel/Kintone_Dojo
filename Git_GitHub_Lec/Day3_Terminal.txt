@@ -1,0 +1,187 @@
+ = = = =  = = = =  = = = =  = = = =  = = = =
+# ハンズオンCの準備 | Prep for Hands-on C
+
+$ cd Documents/Kintone_Dojo
+
+$ git status
+On branch develop
+Your branch is up to date with 'origin/develop'.
+nothing to commit, working tree clean
+
+$ git branch
+* develop
+  master
+
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+$ git branch --delete develop
+warning: deleting branch 'develop' that has been merged to
+         'refs/remotes/origin/develop', but not yet merged to HEAD.
+Deleted branch develop (was 4f98baf).
+
+$ git branch
+* master
+
+ = = = =  = = = =  = = = =  = = = =  = = = =
+# 準備 -タイムトラベル | 遊ぶためにファイルを作成する。
+
+$ git checkout -b timeline
+Switched to a new branch 'timeline'
+
+$ touch yr_1
+$ git add yr_1
+$ git commit -m "Year 1"
+[timeline f10f791] Year 1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 yr_1
+
+$ touch yr_2
+$ git add yr_2
+$ git commit -m "Year 2"
+[timeline 5215f6d] Year 2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 yr_2
+
+$ touch yr_3
+$ git add yr_3
+$ git commit -m "Year 3"
+[timeline 7a5bbf4] Year 3
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 yr_3
+
+$ ls
+README.md
+yr_1
+yr_2
+yr_3
+
+ = = = =  = = = =  = = = =  = = = =  = = = =
+# 歴史を見る
+
+$ git log --oneline
+7a5bbf4 (HEAD -> timeline) Year 3
+5215f6d Year 2
+f10f791 Year 1
+03098e7 (origin/master, master) README file created
+
+$ git push origin timeline
+
+ = = = =  = = = =  = = = =  = = = =  = = = =
+
+$ git log --oneline
+7a5bbf4 (HEAD -> timeline, origin/timeline) Year 3
+5215f6d Year 2
+f10f791 Year 1
+03098e7 (origin/master, master) README file created
+
+$ git checkout f10f791
+Note: switching to 'f10f791'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at f10f791 Year 1
+
+$ ls
+README.md  yr_1
+
+ = = = =  = = = =  = = = =  = = = =  = = = =
+
+
+$ git checkout timeline
+Previous HEAD position was f10f791 Year 1
+Switched to branch 'timeline'
+
+$ ls
+README.md
+yr_1
+yr_2
+yr_3
+
+$ git revert HEAD
+Removing yr_3
+[timeline 450d385] Revert "Year 3"
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 yr_3
+
+$ ls
+README.md
+yr_1
+yr_2
+
+ = = = =  = = = =  = = = =  = = = =  = = = =
+
+$ git log --oneline
+2fb96f6 (HEAD -> timeline) Revert "Year 3"
+7a5bbf4 (origin/timeline) Year 3
+5215f6d Year 2
+f10f791 Year 1
+03098e7 (origin/master, master) README file created
+
+$ git push origin timeline
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 240 bytes | 240.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/ahandsel/Kintone_Dojo_3.git
+To https://github.com/ahandsel/kintone_dojo_3.git
+   f0c82a0..53a0f3e  timeline -> timeline
+
+
+ = = = =  = = = =  = = = =  = = = =  = = = =
+
+$ git log --oneline
+2fb96f6 (HEAD -> timeline, origin/timeline) Revert "Year 3"
+7a5bbf4 Year 3
+5215f6d Year 2
+f10f791 Year 1
+03098e7 (origin/master, master) README file created
+
+$ git revert 5215f6d
+Removing yr_2
+[timeline 6c3367a] Revert "Year 2"
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 yr_2
+
+$ git log --
+6c3367a (HEAD -> timeline) Revert "Year 2"
+2fb96f6 (origin/timeline) Revert "Year 3"
+7a5bbf4 Year 3
+5215f6d Year 2
+f10f791 Year 1
+03098e7 (origin/master, master) README file created
+
+$ ls
+  README.md yr_1
+
+$ git push origin timeline
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 259 bytes | 259.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/ahandsel/Kintone_Dojo_3.git
+To https://github.com/ahandsel/kintone_dojo_3.git
+   53a0f3e..6c3367a  timeline -> timeline
+
