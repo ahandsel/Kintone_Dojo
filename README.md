@@ -5,19 +5,19 @@
   * :zap: Kintone Dojoの講義内容は別のファイルに保存してください。 :zap:
   * これは、gitコマンドの問題がKintone Dojoの講義を妨害しないようにするためです。
 
-* Kintone_Dojoの割り当てを開始する場合：
-  1. マスターブランチに **Task** フォルダーを作成します。
-     * `$ mkdir Task01`
-  2. その時点から、 `develop-task##`というタイトルの新しいブランチを作成します。
-     * `$ git checkout -b develop-task01`
-  3. コードを記述して、このブランチにコミットします。
-     * `$ git add Task01.html Task01.js`
-     * `$ git commit -m "Task01 files first draft"`
+Kintone_Dojoの割り当てを開始するとき：
+  1. masterブランチから、 `develop-task##`というタイトルの新しいブランチを作成します。
+     1. `$ git checkout -b develop-task01`
+  2. 新しいブランチに **Task##** フォルダを作成します。
+     1. `$ mkdir Task01`
+  3. コードを記述して、このフォルダーにコミットします。
+     1. `$ git add Task01.html Task01.js`
+     2. `$ git commit -m "Task01 files first draft"`
 
-* コードレビューの準備ができたら
+コードレビューの準備ができたら：
   1. ブランチをGitHubにプッシュします
-     * `git push origin develop-task01`
-  2. プルリクエストを作成して、 `develop-task ##`ブランチを `master`とマージします。
+     1. `git push origin develop-task01`
+  2. `develop-task ##`ブランチを `master`とマージするプルリクエストを作成します。
   3. レビュー担当者を割り当てます
 
 ## Demo Video
@@ -28,18 +28,18 @@
   * :zap: Please keep Kintone Dojo lecture content in a separate file. :zap:
   * This is to prevent git command issues from interfering with Kintone Dojo's lectures.
 
-* When starting a Kintone_Dojo assignment:
-  1. Create a **Task** folder in the master branch.
-     * e.g. `$ mkdir Task01`
-  2. Create a new branch from that point titled `develop-task##`.
-     * e.g. `$ git checkout -b develop-task01`
-  3. Write your code and commit to this branch.
-     * e.g. `$ git add Task01.html Task01.js`
-     * e.g. `$ git commit -m "Task01 files first draft"`
+When starting a Kintone_Dojo assignment:
+  1. From the master branch, create a new branch titled `develop-task##`.
+     1. `$ git checkout -b develop-task01`
+  2. Create a **Task##** folder in the new branch.
+     1. `$ mkdir Task01`
+  3. Write your code and commit to this folder.
+     1. `$ git add Task01.html Task01.js`
+     2. `$ git commit -m "Task01 files first draft"`
 
-* When you are ready for a code review
+When you are ready for a code review:
   1. Push the branch to GitHub
-     * e.g. `git push origin develop-task01`
+     1. `git push origin develop-task01`
   2. Create a pull request to merge the `develop-task##` branch with `master`.
   3. Assign your reviewer
 
