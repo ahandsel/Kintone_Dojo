@@ -21,7 +21,7 @@ Kintone_Dojoの割り当てを開始するとき：
   3. レビュー担当者を割り当てます
 
 ## Demo Video
-![](Git_GitHub_Lec/Task_Demo.gif)
+  * [Task Demo Video @YouTube](https://youtu.be/-9amExonLI4)
 
 ## How to use Kintone_Dojo Repo:
 * :warning: This repo will only be used for storing Kintone_Dojo assignments! :warning:
