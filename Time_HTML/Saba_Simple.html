@@ -10,40 +10,40 @@
 <!-- 簡単にするために不要なHTMLコードをすべて削除しました -->
 
 <body>
-    <p>現在時刻：<span id="time"></span></p>
-    <h3 id="output"></h3>
-  <script>
-    function set2fig(num){
-        var ret;
-        if ( num < 10 ){
-            ret = '0' + num;
-        }else {
-            ret = num;
-        }
-        return ret;
-    }
-    var now = new Date();
-    var hour = set2fig( now.getHours());
-    var min = set2fig( now.getMinutes());
-    var sec = set2fig( now.getSeconds());
-    var output = hour + ':' + min + ':' + sec;
-    document.getElementById('time').textContent = output;
+<p>現在時刻：<span id="time"></span></p>
+<h3 id="output"></h3>
+<script>
+  function set2fig(num){
+      var ret;
+      if ( num < 10 ){
+          ret = '0' + num;
+      }else {
+          ret = num;
+      }
+      return ret;
+  }
+  var now = new Date();
+  var hour = set2fig( now.getHours());
+  var min = set2fig( now.getMinutes());
+  var sec = set2fig( now.getSeconds());
+  var output = hour + ':' + min + ':' + sec;
+  document.getElementById('time').textContent = output;
+
+
+  var countup = function(){
+    var start = new Date('2020-06-14');
   
-  
-    var countup = function(){
-      var start = new Date('2020-06-14');
-    
-      var rest = now.getTime() - start.getTime();
-      var sec = set2fig(Math.floor(rest / 1000 ) % 60);
-      var min = set2fig(Math.floor(rest / 1000 / 60) % 60);
-      var hours = set2fig(Math.floor(rest / 1000 / 60 / 60 ) % 24);
-      var date = set2fig(Math.floor(rest / 1000 / 60 / 60 / 24));
-      return [date, hours, min, sec];
-    };
-  
-    setInterval(function(){
-      var data = countup();
-      document.getElementById('output').textContent = data[0] + '日' + data[1] + '時間' + data[2] + '分' + data[3] + '秒'}, 1000);
-  </script>
-  </body>
+    var rest = now.getTime() - start.getTime();
+    var sec = set2fig(Math.floor(rest / 1000 ) % 60);
+    var min = set2fig(Math.floor(rest / 1000 / 60) % 60);
+    var hours = set2fig(Math.floor(rest / 1000 / 60 / 60 ) % 24);
+    var date = set2fig(Math.floor(rest / 1000 / 60 / 60 / 24));
+    return [date, hours, min, sec];
+  };
+
+  setInterval(function(){
+    var data = countup();
+    document.getElementById('output').textContent = data[0] + '日' + data[1] + '時間' + data[2] + '分' + data[3] + '秒'}, 1000);
+</script>
+</body>
 </html>
