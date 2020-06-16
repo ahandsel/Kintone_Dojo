@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テンプレート</title>
+</head>
+
+<!-- I removed all the unnecessary HTML code for simplification -->
+<!-- 簡単にするために不要なHTMLコードをすべて削除しました -->
+
+<body>
+<p>現在時刻：<span id="time"></span></p>
+<h3 id="output"></h3>
+<script>
+  'use strict';
+  // Zero padding
+  function set2fig(num) {
+    var ret;
+    if (num < 10) {
+      ret = '0' + num;
+    }else {
+      ret = num;
+    }
+    return ret;
+  }
+  // Inserts the current time into id="time"
+  var clock = function() {
+    var now = new Date();
+    var hour = set2fig( now.getHours());
+    var min = set2fig( now.getMinutes());
+    var sec = set2fig( now.getSeconds());
+    return hour + ':' + min + ':' + sec;
+  }
+  setInterval(function () {
+    document.getElementById('time').textContent = clock();
+  }, 1000);
+
+  // Inserts the time passed since 2020-06-14 into id="output"
+  var countup = function(){
+    var start = new Date('2020-06-14');
+    var now = new Date();
+    var rest = now.getTime() - start.getTime();
+    var sec = set2fig(Math.floor(rest / 1000 ) % 60);
+    var min = set2fig(Math.floor(rest / 1000 / 60) % 60);
+    var hours = set2fig(Math.floor(rest / 1000 / 60 / 60 ) % 24);
+    var date = set2fig(Math.floor(rest / 1000 / 60 / 60 / 24));
+    return [date, hours, min, sec];
+  };
+  var jpFormating = function(data) {
+    // var data = countup();
+    var formatted = data[0] + '日' + data[1] + '時間' + data[2] + '分' + data[3] + '秒';
+    return formatted;
+  }
+  setInterval(function () {
+    document.getElementById('output').textContent = jpFormating(countup());
+  }, 1000);
+
+  // Execute once at the start
+  document.getElementById('time').textContent = clock();
+  document.getElementById('output').textContent = jpFormating(countup());
+</script>
+</body>
+</html>
