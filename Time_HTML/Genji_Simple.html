@@ -33,9 +33,6 @@
     var sec = set2fig( now.getSeconds());
     return hour + ':' + min + ':' + sec;
   }
-  setInterval(function () {
-    document.getElementById('time').textContent = clock();
-  }, 1000);
 
   // Inserts the time passed since 2020-06-14 into id="output"
   // 2020-06-14以降に経過した時間をid = "output"に挿入します
@@ -47,26 +44,19 @@
     var min = set2fig(Math.floor(rest / 1000 / 60) % 60);
     var hours = set2fig(Math.floor(rest / 1000 / 60 / 60 ) % 24);
     var date = set2fig(Math.floor(rest / 1000 / 60 / 60 / 24));
-    // return [date, hours, min, sec];
     var data = [date, hours, min, sec];
     var dataOutput = data[0] + '日' + data[1] + '時間' + data[2] + '分' + data[3] + '秒';
     return dataOutput;
   };
-  // var jpFormating = function(data) {
-  //   // var data = countup();
-  //   var formatted = data[0] + '日' + data[1] + '時間' + data[2] + '分' + data[3] + '秒';
-  //   return formatted;
-  // }
+
   setInterval(function () {
-    // document.getElementById('output').textContent = jpFormating(countup());
     document.getElementById('output').textContent = countup();
+    document.getElementById('time').textContent = clock();
   }, 1000);
 
   // Execute once at the start
   document.getElementById('time').textContent = clock();
-  // document.getElementById('output').textContent = jpFormating(countup());
   document.getElementById('output').textContent = countup();
-
 </script>
 </body>
 </html>
