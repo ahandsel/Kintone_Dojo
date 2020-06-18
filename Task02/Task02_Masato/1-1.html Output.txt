@@ -1,0 +1,44 @@
+{
+  "f001": {
+    "deleteAuth": "情報システム部",
+    "editAuth": "情報システム部",
+    "folderName": "情報システム部",
+    "viewAuth": "情報システム部"
+  },
+  "f002": {
+    "deleteAuth": "経営管理部",
+    "editAuth": "経営管理部",
+    "folderName": "経営管理部",
+    "viewAuth": "経営管理部"
+  },
+  "f003": {
+    "deleteAuth": "営業部",
+    "editAuth": "Everyone",
+    "folderName": "営業部",
+    "viewAuth": "営業部"
+  },
+  "f004": {
+    "deleteAuth": "開発本部",
+    "editAuth": "開発本部",
+    "folderName": "開発本部",
+    "viewAuth": "開発本部"
+  },
+  "f005": {
+    "deleteAuth": "総務部",
+    "editAuth": "Everyone",
+    "folderName": "Everyone",
+    "viewAuth": "総務部"
+  },
+  "f006": {
+    "deleteAuth": "経理部",
+    "editAuth": "経理部",
+    "folderName": "経理部",
+    "viewAuth": "経理部"
+  },
+  "f007": {
+    "deleteAuth": "企画部",
+    "editAuth": "Everyone",
+    "folderName": "企画部",
+    "viewAuth": "企画部"
+  }
+}
