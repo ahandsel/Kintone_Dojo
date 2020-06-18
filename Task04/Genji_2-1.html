@@ -1,0 +1,118 @@
+<html>
+
+<head>
+<title id="Title_Text">kintone の月額料金</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<button onclick="Translate('JP')">Japanese | 日本語</button> <button onclick="Translate('EN')">English | 英語</button>
+<style type="text/css">
+h1 {
+    border:solid 3px #FFBF00;
+    padding:3px;
+    color:#190707;
+    width: 400px;
+}
+div.user {
+    font-size:14pt;
+    font-weight:bold;
+}
+form {
+    margin-left:20px;
+}
+button {
+    margin-right: 15px;
+}
+
+</style>
+</head>
+<body>
+    <h1 id="H1_Text">kintone のライセンス料</h1>
+    <div class="user" id="Subtitle_Text">最低ユーザー数(ライトコース)での利用料金</div>
+    <br>
+    <form>
+        <input type="checkbox" id="Security_Opt" ></input><label for="Security_Opt" id="Security_Text">セキュアオプション (1ユーザー あたり 250円) × </label>
+            <select id="User_Count">
+                <option value="1" id="1_User_Text">1名</option>
+                <option value="2" id="2_User_Text">2名</option>
+                <option value="3" id="3_User_Text">3名</option>
+                <option value="4" id="4_User_Text">4名</option>
+                <option value="5" id="5_User_Text">5名</option>
+            </select>
+            <br>
+        <input type="checkbox" id="Disk_Opt" ></input><label for="Disk_Opt" id="Memory_Text">ディスク増設 (10GB あたり 1000円) × </label>
+            <select id="Storage">
+                <option value="1" id="1_GB_Text">10GB</option>
+                <option value="2" id="2_GB_Text">20GB</option>
+                <option value="3" id="3_GB_Text">30GB</option>
+                <option value="4" id="4_GB_Text">40GB</option>
+                <option value="5" id="5_GB_Text">50GB</option>
+            </select>
+            <br>
+        <button onclick="calculation()" id="Calculation_Button" style="display:inline-block;" type="button">計算</button>
+        <h4 id="Total_Text" style="display:inline-block;" >月額金額: </h4>
+        <h4 id="Price_Text" style="display:inline-block; padding: 5px;" >3900</h4>
+        <h4 id="Currency_Text" style="display:inline-block;">円</h4>
+    </form>
+<script>
+    var Translate = function(lng) {
+        var User_Insert_Index = '';
+        var User_Count_length = document.getElementById('User_Count').options.length + 1;
+        if (lng === 'EN') {
+            var Title_Insert = 'Kintone’s Monthly Fee';
+            var H1_Insert = 'Kintone License Fee';
+            var Subtitle_Insert = 'Usage fee for a minimum number of users (Light Course)';
+            var Security_Insert = 'Security Option (250 yen per user) × ';
+            var Memory_Insert = 'Disk Expansion (1,000 yen per 10 GB) × ';
+            var Total_Insert = 'Monthly Cost: ';
+            var Currency_Insert = 'yen';
+            var Calculation_Insert = 'Calculate';
+            for (var index = 1; index < User_Count_length; index++) {
+                User_Insert_Index = index + '_User_Text';
+                document.getElementById(User_Insert_Index).innerHTML = index + ' User';
+            }
+        } else if (lng === 'JP') {
+            var Title_Insert = 'Kintone の月額料金';
+            var H1_Insert = 'kintone のライセンス料';
+            var Subtitle_Insert = '最低ユーザー数(ライトコース)での利用料金';
+            var Security_Insert = 'セキュアオプション (1ユーザー あたり 250円) × ';
+            var Memory_Insert = 'ディスク増設 (10GB あたり 1000円) × ';
+            var Total_Insert = '月額金額: ';
+            var Currency_Insert = '円';
+            var Calculation_Insert = '計算';
+            for (var index = 1; index < User_Count_length; index++) {
+                User_Insert_Index = index + '_User_Text';
+                document.getElementById(User_Insert_Index).innerHTML = index + '名';
+            }
+        }
+        document.getElementById('Title_Text').innerHTML = Title_Insert;
+        document.getElementById('H1_Text').innerHTML = H1_Insert;
+        document.getElementById('Subtitle_Text').innerHTML = Subtitle_Insert;
+        document.getElementById('Security_Text').innerHTML = Security_Insert;
+        document.getElementById('Memory_Text').innerHTML = Memory_Insert;
+        document.getElementById('Total_Text').innerHTML = Total_Insert;
+        document.getElementById('Currency_Text').innerHTML = Currency_Insert;
+        document.getElementById('Calculation_Button').innerHTML = Calculation_Insert;
+    };
+    var calculation = function() {
+        var light_course_fee = 3900;
+        var security_option_fee = 250;
+        var disk_expansion_fee = 1000;
+        var current_cost = light_course_fee;
+        var current_cost_output = '';
+
+        var Security_Opt_Status = document.getElementById('Security_Opt').checked;
+        var User_Count_Value = document.getElementById('User_Count').value;
+
+        var Disk_Opt_Status = document.getElementById('Disk_Opt').checked;
+        var Storage_Value = document.getElementById('Storage').value;
+
+        if (Security_Opt_Status == true) {
+            current_cost += security_option_fee * User_Count_Value;
+        }
+        if (Disk_Opt_Status == true) {
+            current_cost += disk_expansion_fee * Storage_Value;
+        }
+        document.getElementById('Price_Text').innerHTML = current_cost;
+    };
+</script>
+</body>
+</html>
