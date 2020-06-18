@@ -20,9 +20,12 @@ Kintone_Dojoの割り当てを開始するとき：
   2. `develop-task ##`ブランチを `master`とマージするプルリクエストを作成します。
   3. レビュー担当者を割り当てます
 
-## Demo Video
+## Demo YouTube Videos
+### Kintone_Dojo Task Demo
   * [![](Git_GitHub_Lec/Task_Demo.png)](https://youtu.be/-9amExonLI4)
-  * ^^^YouTube
+
+### GitHub Code Review + GitHub Desktop App
+  * [![](Git_GitHub_Lec/Task_Demo.png)](https://youtu.be/u1-q8nh5irk)
 
 ## How to use Kintone_Dojo Repo:
 * :warning: This repo will only be used for storing Kintone_Dojo assignments! :warning:
