@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<button onclick="CreateFiles('JP')">Japanese | 日本語</button> <button onclick="CreateFiles('EN')">English | 英語</button>
+<title id="MainTitle">File Management</title>
+<style>
+h1 {
+    border:solid 3px #4169E1;
+    padding:3px;
+    color:#190707;
+    width:300px;
+}
+table {
+    border-collapse: collapse;
+}
+td {
+    padding: 4px 8px;
+    border: 1px solid #23628f;
+}
+tr#allFile {
+    background:#AFEEEE;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1 id="MainHeader1">File Management List</h1>
+<h2 id="MainHeader2">Show all folders & access settings</h2>
+</div>
+</header>
+<div class="main-wrapper">
+<section>
+    <table>
+        <tr id="allFile">
+            <td id="Table_H1">Folder Name</td>
+            <td id="Table_H2">Read Permission</td>
+            <td id="Table_H3">Write Permission</td>
+            <td id="Table_H4">Delete Permission</td>
+        </tr>
+        <tr>
+            <td id="folderName1"></td>
+            <td id="viewAuth1"></td>
+            <td id="editAuth1"></td>
+            <td id="deleteAuth1"></td>
+        </tr>
+        <tr>
+            <td id="folderName2"></td>
+            <td id="viewAuth2"></td>
+            <td id="editAuth2"></td>
+            <td id="deleteAuth2"></td>
+        </tr>
+        <tr>
+            <td id="folderName3"></td>
+            <td id="viewAuth3"></td>
+            <td id="editAuth3"></td>
+            <td id="deleteAuth3"></td>
+        </tr>
+        <tr>
+            <td id="folderName4"></td>
+            <td id="viewAuth4"></td>
+            <td id="editAuth4"></td>
+            <td id="deleteAuth4"></td>
+        </tr>
+        <tr>
+            <td id="folderName5"></td>
+            <td id="viewAuth5"></td>
+            <td id="editAuth5"></td>
+            <td id="deleteAuth5"></td>
+        </tr>
+        <tr>
+            <td id="folderName6"></td>
+            <td id="viewAuth6"></td>
+            <td id="editAuth6"></td>
+            <td id="deleteAuth6"></td>
+        </tr>
+        <tr>
+            <td id="folderName7"></td>
+            <td id="viewAuth7"></td>
+            <td id="editAuth7"></td>
+            <td id="deleteAuth7"></td>
+        </tr>
+    </table>
+</section>
+<section>
+    <h2 id="H2_List_Head">Folders that everyone has permission to view:</h2>
+    <ul id="list"></ul>
+</section>
+</div>
+<script>
+    var CreateFiles = function(lng) {
+        // Language Setting
+        if (lng === 'EN') {
+            // Declare English Text
+            Everyone = 'Everyone';
+            ISD = 'Information Systems Dept.';
+            MGTD = 'Management Dept.';
+            SD = 'Sales Dept.';
+            DevD = 'Development Div.';
+            GAD = 'General Affairs Dept.';
+            AD = 'Accounting Dept.';
+            PD = 'Planning Dept.';
+            MainTitle_insert = 'File Management';
+            MainHeader1_insert = 'File Management List';
+            MainHeader2_insert = 'Show all folders & access settings';
+            Table_H1_insert = 'Folder Name';
+            Table_H2_insert = 'Read Permission';
+            Table_H3_insert = 'Write Permission';
+            Table_H4_insert = 'Delete Permission';
+            H2_List_Head_insert = 'Folders that everyone has permission to view:';
+
+        } else if (lng === 'JP') {
+            // Declare Japanese Text
+            Everyone = 'Everyone';
+            ISD = '情報システム部';
+            MGTD = '経営管理部';
+            SD = '営業部';
+            DevD = '開発本部';
+            GAD = '総務部';
+            AD = '経理部';
+            PD = '企画部';
+            MainTitle_insert = 'ファイル管理';
+            MainHeader1_insert = 'ファイル管理一覧';
+            MainHeader2_insert = '全てのフォルダとアクセス権を表示';
+            Table_H1_insert = 'フォルダ名';
+            Table_H2_insert = '閲覧権限';
+            Table_H3_insert = '編集権限';
+            Table_H4_insert = '削除権限';
+            H2_List_Head_insert = '閲覧権限が全員にあるフォルダ';
+        }
+        document.getElementById('MainTitle').innerHTML = MainTitle_insert;
+        document.getElementById('MainHeader1').innerHTML = MainHeader1_insert;
+        document.getElementById('MainHeader2').innerHTML = MainHeader2_insert;
+        document.getElementById('Table_H1').innerHTML = Table_H1_insert;
+        document.getElementById('Table_H2').innerHTML = Table_H2_insert;
+        document.getElementById('Table_H3').innerHTML = Table_H3_insert;
+        document.getElementById('Table_H4').innerHTML = Table_H4_insert;
+        document.getElementById('H2_List_Head').innerHTML = H2_List_Head_insert;
+
+        // Declaring Files as Objects
+        var F001 = {
+            // ISD = Information Systems Dept.
+            folderName: ISD,
+            viewAuth:   ISD,
+            editAuth:   ISD,
+            deleteAuth: ISD
+        };
+        var F002 = {
+            // MGTD = Management Dept.
+            folderName: MGTD,
+            viewAuth:   MGTD,
+            editAuth:   MGTD,
+            deleteAuth: MGTD
+        };
+        var F003 = {
+            // SD = Sales Dept.
+            folderName: SD,
+            viewAuth:   Everyone,
+            editAuth:   SD,
+            deleteAuth: SD
+        };
+        var F004 = {
+            // DevD = Development Div.
+            folderName: DevD,
+            viewAuth:   DevD,
+            editAuth:   DevD,
+            deleteAuth: DevD
+        };
+        var F005 = {
+            // GAD = General Affairs Dept.
+            folderName: GAD,
+            viewAuth:   Everyone,
+            editAuth:   Everyone,
+            deleteAuth: GAD
+        };
+        var F006 = {
+            // AD = Accounting Dept.
+            folderName: AD,
+            viewAuth:   AD,
+            editAuth:   AD,
+            deleteAuth: AD
+        };
+        var F007 = {
+            // PD = Planning Dept.
+            folderName: PD,
+            viewAuth:   Everyone,
+            editAuth:   PD,
+            deleteAuth: PD
+        };
+        // Declaring fileManager as an Object with Files within it
+        var fileManager = {
+            Managed_F001: F001,
+            Managed_F002: F002,
+            Managed_F003: F003,
+            Managed_F004: F004,
+            Managed_F005: F005,
+            Managed_F006: F006,
+            Managed_F007: F007
+        };
+        var folder_Names = Object.keys(fileManager) // Array of Managed_F001 ==> Managed_F007
+        var HTML_Index = 1;                         // Keeps track of HTML Element ID
+        var Everyone_View_Folders = [];             // Array to store folderName(s) that has viewAuth set to Everyone
+        document.getElementById('list').innerHTML = '';
+
+        for (var index = 0; index < folder_Names.length; index++) {
+            var temp_Folder = fileManager[folder_Names[index]]; // returns the F00x as object
+
+            // Checks if current folder's viewAuth is set to 'Everyone'
+            if (temp_Folder.viewAuth === 'Everyone') {
+                var li_Insert = document.createElement('li');           // creating a new list item
+                li_Insert.textContent = temp_Folder.folderName;         // add the value of folderName to the list item
+                document.getElementById('list').appendChild(li_Insert); // inserting the list time into html
+            };
+
+            for (var info in temp_Folder) {
+                // info cycles through 'folderName','viewAuth','editAuth','deleteAuth' per Managed_F00x
+                // temp_Folder[info] == returns value stored in folderName to deleteAuth per Folder
+                // HTML ID == generates folderName1 to deleteAuth7
+                var HTML_ID = info + HTML_Index;
+                document.getElementById(HTML_ID).innerHTML=temp_Folder[info];
+            }
+            // For_Loop for a File finished...
+            HTML_Index++; // increments HTML_ID
+        }
+    } // outside of Createfiles function
+</script>
+</body>
+</html>

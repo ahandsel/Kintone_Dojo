@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>File Management | ファイル管理</title>
+<style>
+h1 {
+    border:solid 3px #4169E1;
+    padding:3px;
+    color:#190707;
+    width:600px;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>File management List | ファイル管理一覧</h1>
+<h2>Show all folders & access settings | 全てのフォルダとアクセス権を表示</h2>
+</div>
+</header>
+<button onclick="CreateFiles('JP')">Japanese | 日本語</button> <button onclick="CreateFiles('EN')">English | 英語</button>
+<tbody id="Table_Text"></tbody>
+<script>
+    var CreateFiles = function(lng) {
+        // Language Setting
+        if(lng === 'EN'){
+            //Declare English Text
+            Everyone = 'Everyone';
+            ISD = 'Information Systems Dept.';
+            MGTD = 'Management Dept.';
+            SD = 'Sales Dept.';
+            DevD = 'Development Div.';
+            GAD = 'General Affairs Dept.';
+            AD = 'Accounting Dept.';
+            PD = 'Planning Dept.';
+        } else if (lng === 'JP') {
+            //Declare Japanese Text Shortcuts
+            Everyone = 'Everyone'
+            ISD = '情報システム部';
+            MGTD = '経営管理部';
+            SD = '営業部';
+            DevD = '開発本部';
+            GAD = '総務部';
+            AD = '経理部';
+            PD = '企画部';
+        }
+        // Declaring Files as Objects
+        var f001 = {
+            // ISD = Information Systems Dept.
+            'folderName': ISD,
+            'viewAuth': ISD,
+            'editAuth': ISD,
+            'deleteAuth': ISD
+        };
+        var f002 = {
+            // MGTD = Management Dept.
+            'folderName': MGTD,
+            'viewAuth': MGTD,
+            'editAuth': MGTD,
+            'deleteAuth': MGTD
+        };
+        var f003 = {
+            // SD = Sales Dept.
+            'folderName': SD,
+            'viewAuth': Everyone,
+            'editAuth': SD,
+            'deleteAuth': SD
+        };
+        var f004 = {
+            // DevD = Development Div.
+            'folderName': DevD,
+            'viewAuth': DevD,
+            'editAuth': DevD,
+            'deleteAuth': DevD
+        };
+        var f005 = {
+            // GAD = General Affairs Dept.
+            'folderName': GAD,
+            'viewAuth': Everyone,
+            'editAuth': Everyone,
+            'deleteAuth': GAD
+        };
+        var f006 = {
+            // AD = Accounting Dept.
+            'folderName': AD,
+            'viewAuth': AD,
+            'editAuth': AD,
+            'deleteAuth': AD
+        };
+        var f007 = {
+            // PD = Planning Dept.
+            'folderName': PD,
+            'viewAuth': Everyone,
+            'editAuth': PD,
+            'deleteAuth': PD
+        };
+        // Declaring fileManager as an Object with Files within it
+        var fileManager = {
+            'f001': f001,
+            'f002': f002,
+            'f003': f003,
+            'f004': f004,
+            'f005': f005,
+            'f006': f006,
+            'f007': f007
+        };
+        console.log(fileManager);
+        if(lng === 'EN'){
+            window.alert('fileManager is created & viewable via Console');
+        } else if (lng === 'JP') {
+            window.alert('fileManagerが作成され、コンソールから表示可能です。');
+        }
+    }
+</script>
+</body>
+</html>
