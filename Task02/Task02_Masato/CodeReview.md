@@ -6,6 +6,7 @@
 * [ ] Line 26: Indent once (2 spaces) before `var`
 * [ ] Line 33: Delete blank lines
 * [ ] Line 27, 34, 40, 46, 52, 58, 64: Replace `Object=` with a space (` `)
+* [ ] `innerHTML`
 
 ### JS_task1-2.html
 * [ ] `stricet` is misspelled.
