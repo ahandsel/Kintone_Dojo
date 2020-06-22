@@ -2,9 +2,10 @@
 
 ### 外部 API を用いて、郵便番号から住所を自動入力しよう。
   * 鉄道までは表示しなくても、OK
+  * 今回はCORS対応されていないAPIになりますが、JSONPでやりとりが可能となっています。
+  * リクエスト時に「`dataType: 'jsonp'`」も一緒に渡すことでブラウザ上でやり取りが可能となります。
 
-![Task05_A_InputPage](Task05_A_InputPage.png) ![Task05_B_OutputPage](Task05_B_OutputPage.png)
-
+![Task05_A_InputPage](img/Task05_A_InputPage.png) ![Task05_B_OutputPage](img/Task05_B_OutputPage.png)
 
 ### ヒント】
   * [Yahoo! デベロッパーネットワーク](https://e.developer.yahoo.co.jp/dashboard/)を利用する
@@ -17,12 +18,16 @@
   * [郵便番号検索 API 公式ドキュメント](https://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/zipcodesearch.html)
   * [Yahoo! APIに関する特約事項](https://about.yahoo.co.jp/docs/info/terms/chapter1.html#cf5st)
 
+---
+
 # Task05 Instructions (English)
 
 ### Use the 3rd-party API to automatically get the address based on the provided zip code.
   * Optional: Displaying the trains
-  * ![Task05_A_InputPage](Task05_A_InputPage.png)
-  * ![Task05_B_OutputPage](Task05_B_OutputPage.png)
+  * This API is not CORS compliant, but it is possible to use with JSONP.
+  * By passing "`dataType: 'jsonp'`" together with the request, you can communicate on the browser.
+  * ![Task05_A_InputPage](img/Task05_A_InputPage.png)
+  * ![Task05_B_OutputPage](img/Task05_B_OutputPage.png)
 
 
 ### Hint:
