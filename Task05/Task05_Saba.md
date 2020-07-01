@@ -1,4 +1,4 @@
-# Saba | [Tak05 Code Review](https://github.com/t-saba/Kintone_Dojo/pull/10)
+# Saba | [Task05 Code Review](https://github.com/t-saba/Kintone_Dojo/pull/10)
 
 ## 日本版
 * [ ] 5、8行：空行を削除
