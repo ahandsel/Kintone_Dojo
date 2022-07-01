@@ -10,11 +10,11 @@ nothing to commit, working tree clean
 
 $ git branch
 * develop
-  master
+  main
 
-$ git checkout master
-Switched to branch 'master'
-Your branch is up to date with 'origin/master'.
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
 
 $ git branch --delete develop
 warning: deleting branch 'develop' that has been merged to
@@ -22,7 +22,7 @@ warning: deleting branch 'develop' that has been merged to
 Deleted branch develop (was 4f98baf).
 
 $ git branch
-* master
+* main
 
  = = = =  = = = =  = = = =  = = = =  = = = =
 # 準備 -タイムトラベル | 遊ぶためにファイルを作成する。
@@ -64,7 +64,7 @@ $ git log --oneline
 7a5bbf4 (HEAD -> timeline) Year 3
 5215f6d Year 2
 f10f791 Year 1
-03098e7 (origin/master, master) README file created
+03098e7 (origin/main, main) README file created
 
 $ git push origin timeline
 
@@ -74,7 +74,7 @@ $ git log --oneline
 7a5bbf4 (HEAD -> timeline, origin/timeline) Year 3
 5215f6d Year 2
 f10f791 Year 1
-03098e7 (origin/master, master) README file created
+03098e7 (origin/main, main) README file created
 
 $ git checkout f10f791
 Note: switching to 'f10f791'.
@@ -130,7 +130,7 @@ $ git log --oneline
 7a5bbf4 (origin/timeline) Year 3
 5215f6d Year 2
 f10f791 Year 1
-03098e7 (origin/master, master) README file created
+03098e7 (origin/main, main) README file created
 
 $ git push origin timeline
 Enumerating objects: 3, done.
@@ -153,7 +153,7 @@ $ git log --oneline
 7a5bbf4 Year 3
 5215f6d Year 2
 f10f791 Year 1
-03098e7 (origin/master, master) README file created
+03098e7 (origin/main, main) README file created
 
 $ git revert 5215f6d
 Removing yr_2
@@ -167,7 +167,7 @@ $ git log --
 7a5bbf4 Year 3
 5215f6d Year 2
 f10f791 Year 1
-03098e7 (origin/master, master) README file created
+03098e7 (origin/main, main) README file created
 
 $ ls
   README.md yr_1
